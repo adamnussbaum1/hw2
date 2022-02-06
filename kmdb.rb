@@ -70,6 +70,9 @@
 # Use `Model.destroy_all` code.
 # TODO!
 
+
+
+
 # Generate models and tables, according to the domain model
 # TODO!
 
