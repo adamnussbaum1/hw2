@@ -169,7 +169,6 @@ puts joseph_gordon_levitt.id
 anne_hathaway = Person.where({ name: "Anne Hathaway" })[0]
 puts anne_hathaway.id
 
-
 ##Adding in movies into the Movie table
 batman1 = Movie.new
 batman1.title = "Batman Begins"
@@ -210,6 +209,91 @@ role.movie_id = batman_begins.id
 role.person_id = christian_bale.id
 role.character_name = "Bruce Wayne"
 role.save
+
+role = Role.new
+role.movie_id = batman_begins.id
+role.person_id = michael_caine.id
+role.character_name = "Alfred"
+role.save
+
+role = Role.new
+role.movie_id = batman_begins.id
+role.person_id = liam_neeson.id
+role.character_name = "Ra's Al Ghul"
+role.save
+
+role = Role.new
+role.movie_id = batman_begins.id
+role.person_id = katie_holmes.id
+role.character_name = "Rachel Dawes"
+role.save
+
+role = Role.new
+role.movie_id = batman_begins.id
+role.person_id = gary_oldman.id
+role.character_name = "Commissioner Gordon"
+role.save
+
+role = Role.new
+role.movie_id = dark_knight.id
+role.person_id = christian_bale.id
+role.character_name = "Bruce Wayne"
+role.save
+
+role = Role.new
+role.movie_id = dark_knight.id
+role.person_id = heath_ledger.id
+role.character_name = "Joker"
+role.save
+
+role = Role.new
+role.movie_id = dark_knight.id
+role.person_id = aaron_eckhart.id
+role.character_name = "Harvey Dent"
+role.save
+
+role = Role.new
+role.movie_id = dark_knight.id
+role.person_id = michael_caine.id
+role.character_name = "Alfred"
+role.save
+
+role = Role.new
+role.movie_id = dark_knight.id
+role.person_id = maggie_gyllenhaal.id
+role.character_name = "Rachel Dawes"
+role.save
+
+role = Role.new
+role.movie_id = dark_knight_rises.id
+role.person_id = christian_bale.id
+role.character_name = "Bruce Wayne"
+role.save
+
+role = Role.new
+role.movie_id = dark_knight_rises.id
+role.person_id = gary_oldman.id
+role.character_name = "Commissioner Gordon"
+role.save
+
+role = Role.new
+role.movie_id = dark_knight_rises.id
+role.person_id = tom_hardy.id
+role.character_name = "Bane"
+role.save
+
+role = Role.new
+role.movie_id = dark_knight_rises.id
+role.person_id = joseph_gordon_levitt.id
+role.character_name = "John Blake"
+role.save
+
+role = Role.new
+role.movie_id = dark_knight_rises.id
+role.person_id = anne_hathaway.id
+role.character_name = "Selina Kyle"
+role.save
+
 
 
 ##creating loops
