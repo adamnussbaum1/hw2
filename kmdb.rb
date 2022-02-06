@@ -316,6 +316,7 @@ roles = Role.all
 person = Person.where({ id: role.person_id })[0]
 movie = Movie.where({ id: role.movie_id })[0]
 
+
 for movie in movies
   for person in people
     for role in roles
