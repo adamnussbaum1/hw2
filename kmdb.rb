@@ -132,9 +132,9 @@ person.save
 
 puts "There are #{Person.all.count} person."
 
-##Creating varibale to reference christopher nola
-ChristopherNolan_id = Person.where({ name: "Christopher Nolan" })[0]
-puts ChristopherNolan_id.id
+##Creating varibale to reference christopher nolan
+ChristopherNolan = Person.where({ name: "Christopher Nolan" })[0]
+puts ChristopherNolan.id
 
 
 ##Adding in movies into the Movie table
@@ -142,25 +142,51 @@ batman1 = Movie.new
 batman1.title = "Batman Begins"
 batman1.year_released = "2005"
 batman1.rated = "PG-13"
-batman1.person_id  = ChristopherNolan_id.id
+batman1.person_id  = ChristopherNolan.id
 batman1.save
 
 batman2 = Movie.new
 batman2.title = "The Dark Knight"
 batman2.year_released = "2008"
 batman2.rated = "PG-13"
-batman2.person_id  = ChristopherNolan_id.id
+batman2.person_id  = ChristopherNolan.id
 batman2.save
 
 batman3 = Movie.new
 batman3.title = "The Dark Knight"
 batman3.year_released = "2012"
 batman3.rated = "PG-13"
-batman3.person_id  = ChristopherNolan_id.id
+batman3.person_id  = ChristopherNolan.id
 batman3.save
 
 
+##Adding role into the Roles Table
+role = role.new
+role.movie_id = 
+role.person_id =
+role.character_name =
+role.save
+
+
+##creating loops
 puts "There are #{Movie.all.count} movies."
+
+movies = Movie.where({ person_id: ChristopherNolan.id })
+puts movies
+
+puts "Movies: #{movies.count}"
+for movie in movies
+  puts "#{movie.title}"
+end
+
+movies = ChristopherNolan.movies
+
+puts "Movies: #{movies.count}"
+for movie in movies
+  puts "#{movie.title}"
+end
+
+
 
 # Prints a header for the movies output
 puts "Movies"
