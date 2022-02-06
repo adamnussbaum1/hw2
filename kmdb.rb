@@ -134,40 +134,28 @@ puts "There are #{Person.all.count} person."
 
 ##Creating varibale to reference people
 christopher_nolan = Person.where({ name: "Christopher Nolan" })[0]
-puts christopher_nolan.id
 
 christian_bale = Person.where({ name: "Christian Bale" })[0]
-puts christian_bale.id
 
 michael_caine = Person.where({ name: "Michael Caine" })[0]
-puts michael_caine.id
 
 liam_neeson = Person.where({ name: "Liam Neeson" })[0]
-puts liam_neeson.id
 
 katie_holmes = Person.where({ name: "Katie Holmes" })[0]
-puts katie_holmes.id
 
 gary_oldman = Person.where({ name: "Gary Oldman" })[0]
-puts gary_oldman.id
 
 heath_ledger = Person.where({ name: "Heath Ledger" })[0]
-puts heath_ledger.id
 
 aaron_eckhart = Person.where({ name: "Aaron Eckhart" })[0]
-puts aaron_eckhart.id
 
 maggie_gyllenhaal = Person.where({ name: "Maggie Gyllenhaal" })[0]
-puts maggie_gyllenhaal.id
 
 tom_hardy = Person.where({ name: "Tom Hardy" })[0]
-puts tom_hardy.id
 
 joseph_gordon_levitt = Person.where({ name: "Joseph Gordon-Levitt" })[0]
-puts joseph_gordon_levitt.id
 
 anne_hathaway = Person.where({ name: "Anne Hathaway" })[0]
-puts anne_hathaway.id
 
 ##Adding in movies into the Movie table
 batman1 = Movie.new
@@ -195,13 +183,10 @@ puts "There are #{Movie.all.count} movies."
 
 ##creating variables to reference movie IDs
 batman_begins = Movie.where({ title: "Batman Begins" })[0]
-puts batman_begins.id
 
 dark_knight = Movie.where({ title: "The Dark Knight" })[0]
-puts dark_knight.id
 
 dark_knight_rises = Movie.where({ title: "The Dark Knight Rises" })[0]
-puts dark_knight_rises.id
 
 ##Adding role into the Roles Table
 role = Role.new
@@ -294,17 +279,13 @@ role.person_id = anne_hathaway.id
 role.character_name = "Selina Kyle"
 role.save
 
-
-
 ##creating loops
 
-movies = Movie.where({ person_id: christopher_nolan.id })
-puts movies.ids
+movies = Movie.all
 
-puts "Movies: #{movies.count}"
-for movie in movies
-  puts "#{movie.title}"
-end
+#for movie in movies
+#"#{movie.title} #{movie.year_released} #{movie.rated}"
+#end
 
 # Prints a header for the movies output
 puts "Movies"
@@ -314,21 +295,11 @@ puts ""
 # Query the movies data and loop through the results to display the movies output
 # TODO!
 
-movies = Movie.all
+#person = Person.where({ id: movie.person_id })[0]
 
-Movie.all
-puts "Movies: #{movies.count}"
 for movie in movies
-  puts "#{movie.title} #{movie.year_released} #{movie.rated} #{movie.person_id} #{christopher_nolan.name}"
+  puts "#{movie.title} #{movie.year_released} #{movie.rated} #{christopher_nolan.name}"
 end
-
-
-Movie.all
-puts "Movies: #{movies.count}"
-for movie in movies
-  puts "#{movie.title} #{movie.year_released} #{movie.rated} #{movie.person_id} #{christopher_nolan.name}"
-end
-
 
 # Prints a header for the cast output
 puts ""
@@ -338,3 +309,20 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie
 # TODO!
+movies = Movie.all
+people = Person.all
+roles = Role.all
+
+person = Person.where({ id: role.person_id })[0]
+movie = Movie.where({ id: role.movie_id })[0]
+
+for movie in movies
+  for person in people
+    for role in roles
+      puts "#{movie.title} #{person.name} #{role.character_name}"
+end
+end
+end
+
+
+
