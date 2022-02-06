@@ -136,6 +136,11 @@ puts "There are #{Person.all.count} person."
 christopher_nolan = Person.where({ name: "Christopher Nolan" })[0]
 puts christopher_nolan.id
 
+christian_bale = Person.where({ name: "Christian Bale" })[0]
+puts christian_bale.id
+
+
+
 
 ##Adding in movies into the Movie table
 batman1 = Movie.new
@@ -153,7 +158,7 @@ batman2.person_id  = christopher_nolan.id
 batman2.save
 
 batman3 = Movie.new
-batman3.title = "The Dark Knight"
+batman3.title = "The Dark Knight Rises"
 batman3.year_released = "2012"
 batman3.rated = "PG-13"
 batman3.person_id  = christopher_nolan.id
@@ -161,11 +166,20 @@ batman3.save
 
 puts "There are #{Movie.all.count} movies."
 
+batman_begins = Movie.where({ title: "Batman Begins" })[0]
+puts batman_begins.id
+
+dark_knight = Movie.where({ title: "The Dark Knight" })[0]
+puts dark_knight.id
+
+dark_knight_rises = Movie.where({ title: "The Dark Knight Rises" })[0]
+puts dark_knight_rises.id
+
 ##Adding role into the Roles Table
 role = Role.new
-role.movie_id = 
-role.person_id =
-role.character_name =
+role.movie_id = batman_begins.id
+role.person_id = christian_bale.id
+role.character_name = "Bruce Wayne"
 role.save
 
 
