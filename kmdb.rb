@@ -309,6 +309,19 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie
 # TODO!
+
+christian_bale = Person.where({ name:"Christian Bale"})[0]
+puts christian_bale.id
+
+roles = christian_bale.roles
+
+p "Roles with CB: #{roles.count}"
+for role in roles
+    p "#{role.character_name}"
+end
+
+
+
 movies = Movie.all
 people = Person.all
 roles = Role.all
@@ -324,6 +337,9 @@ for movie in movies
 end
 end
 end
+
+
+
 
 
 
