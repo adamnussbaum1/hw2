@@ -80,14 +80,64 @@ Role.destroy_all
 # Do not use hard-coded foreign key IDs.
 # TODO!
 
-person1 = Person.new
-person1.name = "Christopher Nolan"
-person1.save
+
+##Adding person into the People Table
+person = Person.new
+person.name = "Christopher Nolan"
+person.save
+
+person = Person.new
+person.name = "Christian Bale"
+person.save
+
+person = Person.new
+person.name = "Michael Caine"
+person.save
+
+person = Person.new
+person.name = "Liam Neeson"
+person.save
+
+person = Person.new
+person.name = "Katie Holmes"
+person.save
+
+person = Person.new
+person.name = "Gary Oldman"
+person.save
+
+person = Person.new
+person.name = "Heath Ledger"
+person.save
+
+person = Person.new
+person.name = "Aaron Eckhart"
+person.save
+
+person = Person.new
+person.name = "Maggie Gyllenhaal"
+person.save
+
+person = Person.new
+person.name = "Tom Hardy"
+person.save
+
+person = Person.new
+person.name = "Joseph Gordon-Levitt"
+person.save
+
+person = Person.new
+person.name = "Anne Hathaway"
+person.save
+
 puts "There are #{Person.all.count} person."
 
+##Creating varibale to reference christopher nola
 ChristopherNolan_id = Person.where({ name: "Christopher Nolan" })[0]
 puts ChristopherNolan_id.id
 
+
+##Adding in movies into the Movie table
 batman1 = Movie.new
 batman1.title = "Batman Begins"
 batman1.year_released = "2005"
