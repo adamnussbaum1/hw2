@@ -73,14 +73,44 @@ Movie.destroy_all
 Person.destroy_all
 Role.destroy_all
 
-
-
 # Generate models and tables, according to the domain model
 # TODO!
 
 # Insert data into your database that reflects the sample data shown above
 # Do not use hard-coded foreign key IDs.
 # TODO!
+
+person1 = Person.new
+person1.name = "Christopher Nolan"
+person1.save
+puts "There are #{Person.all.count} person."
+
+ChristopherNolan_id = Person.where({ name: "Christopher Nolan" })[0]
+puts ChristopherNolan_id.id
+
+batman1 = Movie.new
+batman1.title = "Batman Begins"
+batman1.year_released = "2005"
+batman1.rated = "PG-13"
+batman1.person_id  = ChristopherNolan_id.id
+batman1.save
+
+batman2 = Movie.new
+batman2.title = "The Dark Knight"
+batman2.year_released = "2008"
+batman2.rated = "PG-13"
+batman2.person_id  = ChristopherNolan_id.id
+batman2.save
+
+batman3 = Movie.new
+batman3.title = "The Dark Knight"
+batman3.year_released = "2012"
+batman3.rated = "PG-13"
+batman3.person_id  = ChristopherNolan_id.id
+batman3.save
+
+
+puts "There are #{Movie.all.count} movies."
 
 # Prints a header for the movies output
 puts "Movies"
