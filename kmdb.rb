@@ -130,7 +130,7 @@ person = Person.new
 person.name = "Anne Hathaway"
 person.save
 
-puts "There are #{Person.all.count} person."
+# puts "There are #{Person.all.count} person."
 
 ##Creating varibale to reference people
 christopher_nolan = Person.where({ name: "Christopher Nolan" })[0]
@@ -179,7 +179,7 @@ batman3.rated = "PG-13"
 batman3.person_id  = christopher_nolan.id
 batman3.save
 
-puts "There are #{Movie.all.count} movies."
+# puts "There are #{Movie.all.count} movies."
 
 ##creating variables to reference movie IDs
 batman_begins = Movie.where({ title: "Batman Begins" })[0]
@@ -310,15 +310,15 @@ puts ""
 # Query the cast data and loop through the results to display the cast output for each movie
 # TODO!
 
-christian_bale = Person.where({ name:"Christian Bale"})[0]
-puts christian_bale.id
+# christian_bale = Person.where({ name:"Christian Bale"})[0]
+# puts christian_bale.id
 
-roles = christian_bale.roles
+# roles = christian_bale.roles
 
-p "Roles with CB: #{roles.count}"
-for role in roles
-    p "#{role.character_name}"
-end
+# p "Roles with CB: #{roles.count}"
+# for role in roles
+#     p "#{role.character_name}"
+# end
 
 
 
@@ -326,19 +326,19 @@ movies = Movie.all
 people = Person.all
 roles = Role.all
 
+
 person = Person.where({ id: role.person_id })[0]
 movie = Movie.where({ id: role.movie_id })[0]
 
 
 for movie in movies
-  for person in people
-    for role in roles
-      puts "#{movie.title} #{person.name} #{role.character_name}"
+  roles_in_movie = Role.where ({movie_id: movie.id})
+  # puts "#{movie.title} #{roles_in_movie.count}"
+  for role in roles_in_movie
+    actor = Person.where ({id: role.person_id})[0]
+    puts "#{movie.title} #{role.character_name} #{actor.name}"
+  end
 end
-end
-end
-
-
 
 
 
