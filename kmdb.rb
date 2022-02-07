@@ -332,11 +332,10 @@ movie = Movie.where({ id: role.movie_id })[0]
 
 
 for movie in movies
-  roles_in_movie = Role.where ({movie_id: movie.id})
-  # puts "#{movie.title} #{roles_in_movie.count}"
+  roles_in_movie = Role.where({movie_id: movie.id})
   for role in roles_in_movie
-    actor = Person.where ({id: role.person_id})[0]
-    puts "#{movie.title} #{role.character_name} #{actor.name}"
+    actor = Person.where({id: role.person_id})[0]
+    puts "#{movie.title} #{actor.name} #{role.character_name}"
   end
 end
 
